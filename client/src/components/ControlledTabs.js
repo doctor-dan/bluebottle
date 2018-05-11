@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { Row, Col, Nav, NavItem, NavDropdown, MenuItem, Tab } from 'react-bootstrap';
+import { Row, Col, Nav, NavDropdown, MenuItem, Tab } from 'react-bootstrap';
+import AdminContainer from './AdminContainer'
+
 class ControlledTabs extends Component {
   constructor(props, context) {
     super(props, context);
@@ -22,7 +24,7 @@ class ControlledTabs extends Component {
   <Row className="clearfix">
     <Col sm={12}>
       <Nav bsStyle="tabs">
-        <NavItem eventKey="first">Admin</NavItem>
+        <AdminContainer />
         <NavDropdown eventKey="2" title="Show Menu" id="nav-dropdown-within-tab">
           <MenuItem eventKey="2.1">USA</MenuItem>
           <MenuItem eventKey="2.2">Japan</MenuItem>
