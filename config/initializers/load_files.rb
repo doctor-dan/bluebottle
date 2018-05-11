@@ -18,9 +18,11 @@ end
 
 response = conn.get('items.json')
 if response.status == 200
+    Itemcategory.destroy_all
     itemlist = JSON.parse(response.body)
-    itemlist.map do |li|
-        Category.where(name: li['category']).take.id
-        Item.where(sku: li['sku']).take.id
+    itemlist.each do |it|
+        catbev = Category.find_by_name(it['category'])
+        itm = Item.find_by_sku(it['sku'])
+        catbev.items << itm
     end
 end
