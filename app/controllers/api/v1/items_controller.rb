@@ -7,5 +7,11 @@ module Api::V1
       @items = Item.all
       json_response(@items)
     end
+    
+     # GET /items/1
+    def show
+      json_response(@item)
+    end
+    
   end
 end
