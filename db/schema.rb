@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 2018_05_10_014138) do
   end
 
   create_table "itemcategories", force: :cascade do |t|
-    t.references :item
-    t.references :category
+    t.belongs_to :item, index: true
+    t.belongs_to :category, index: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
