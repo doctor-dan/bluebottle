@@ -1,5 +1,0 @@
-      invoke  active_record
-      create    db/migrate/20180510012739_create_categories.rb
-      create    app/models/category.rb
-      invoke    rspec
-      create      spec/models/category_spec.rb
