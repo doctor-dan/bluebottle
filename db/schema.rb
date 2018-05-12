@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_10_014138) do
+ActiveRecord::Schema.define(version: 2018_05_11_230947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,10 +22,12 @@ ActiveRecord::Schema.define(version: 2018_05_10_014138) do
   end
 
   create_table "itemcategories", force: :cascade do |t|
-    t.belongs_to :item, index: true
-    t.belongs_to :category, index: true
+    t.bigint "item_id"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_itemcategories_on_category_id"
+    t.index ["item_id"], name: "index_itemcategories_on_item_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -33,6 +35,14 @@ ActiveRecord::Schema.define(version: 2018_05_10_014138) do
     t.string "name"
     t.decimal "price", precision: 10, scale: 2
     t.string "currency"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "countryIsoAlpha2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
