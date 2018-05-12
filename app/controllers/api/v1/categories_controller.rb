@@ -8,6 +8,13 @@ module Api::V1
       @categories = Category.all
       json_response(@categories)
     end
+    
+    # GET /categories/1
+    def show
+      json_response(@category)
+    end
+    
+    
   end
 end
 
