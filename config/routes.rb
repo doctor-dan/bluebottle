@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :locations
+
+  get 'admin', action: :show, controller: 'admin'
+  put 'admin', action: :reset, controller: 'admin'
   resources :items
   resources :categories
 end

@@ -3,11 +3,20 @@ module LoadFiles
         Faraday.new(:url => 'https://raw.githubusercontent.com/bluebottlecoffee/coding_exercise/master/ims')
     end
     
+    def show_counts
+            render json: {
+                items: Item.count,
+                categories: Category.count,
+                 item_categories: Itemcategory.count
+            }.to_json
+    end
+    
     def load_item_categories(conn)
         response = conn.get('item_categories.json')
         if response.status == 200
             Category.destroy_all
             Category.create(JSON.parse(response.body)) 
+            p 'Loaded Categories'
         end
     end
     
