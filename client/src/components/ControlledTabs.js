@@ -37,7 +37,7 @@ class ControlledTabs extends Component {
     </Col>
     <Col sm={12}>
       <Tab.Content animation>
-        <Tab.Pane eventKey="first">Tab 1 content</Tab.Pane>
+        <Tab.Pane eventKey="first">Administrative Control</Tab.Pane>
         <Tab.Pane eventKey="2">Show Menu</Tab.Pane>
         <Tab.Pane eventKey="2.1">USA Menu</Tab.Pane>
         <Tab.Pane eventKey="2.2">Japan Menu</Tab.Pane>
