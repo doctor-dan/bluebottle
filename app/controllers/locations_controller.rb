@@ -9,7 +9,7 @@ class LocationsController < ApplicationController
 
   # GET /locations/1
   def show
-    json_response(@location)
+    render json: @location
   end
 
   # POST /locations
