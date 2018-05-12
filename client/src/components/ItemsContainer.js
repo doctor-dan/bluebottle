@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import List from './List';
+
 class ItemsContainer extends Component {
   constructor(props){
         super(props)
         this.state = {
-            Categories: []
+            lists: []
         }
     }
     
     componentDidMount() {
-        axios.get('http://localhost:3001/items')
+        axios.get('http://localhost:3001/items?currency=USD')
         .then(response => {
             console.log(response)
             this.setState({
@@ -20,9 +22,11 @@ class ItemsContainer extends Component {
     }
   render() {
     return (
-      <div>
-        Lists
-      </div>
+<div className="lists-container">
+                {this.state.lists.map( list => {
+                    return (<List list={list} key={list.id} />)
+                })}
+            </div>
     )
   }
 }

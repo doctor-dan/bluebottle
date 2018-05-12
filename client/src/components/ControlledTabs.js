@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Row, Col, Nav, NavDropdown, MenuItem, Tab } from 'react-bootstrap';
 import AdminContainer from './AdminContainer'
+import ItemsContainer from './ItemsContainer'
 
 class ControlledTabs extends Component {
   constructor(props, context) {
@@ -39,7 +40,7 @@ class ControlledTabs extends Component {
       <Tab.Content animation>
         <Tab.Pane eventKey="first">Administrative Control</Tab.Pane>
         <Tab.Pane eventKey="2">Show Menu</Tab.Pane>
-        <Tab.Pane eventKey="2.1">USA Menu</Tab.Pane>
+        <Tab.Pane eventKey="2.1"><ItemsContainer /></Tab.Pane>
         <Tab.Pane eventKey="2.2">Japan Menu</Tab.Pane>
         <Tab.Pane eventKey="3.1">Modify by Category</Tab.Pane>
         <Tab.Pane eventKey="3.2">Modify by SKU/Country</Tab.Pane>
