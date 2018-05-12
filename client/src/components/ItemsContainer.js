@@ -9,7 +9,7 @@ class ItemsContainer extends Component {
     }
     
     componentDidMount() {
-        axios.get('https://bluebottle-dkneuma.c9users.io:8081/categories')
+        axios.get('http://localhost:3001/items')
         .then(response => {
             console.log(response)
             this.setState({
