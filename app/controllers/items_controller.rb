@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :update]
+  before_action :set_item, only: %i[show update]
   # GET /items
   def index
     @items = if params[:currency]
@@ -35,6 +35,6 @@ class ItemsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def item_params
-    params.require(:item).permit(:id, :sku, :name, :price, :currency)
+    params.permit(:sku, :name, :price, :currency)
   end
 end
