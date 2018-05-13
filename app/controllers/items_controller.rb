@@ -2,7 +2,11 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show]
     # GET /items
   def index
-    @items = Item.all
+    if params[:currency]
+      @items = Item.where('currency = ?', params[:currency])
+    else
+      @items = Item.all
+    end
     json_response(@items)
   end
   
