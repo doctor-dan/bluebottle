@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Items API', type: :request do
- # initialize test data 
+  # initialize test data
   let!(:items) { create_list(:item, 10) }
   let(:item_id) { items.first.id }
-  
-    # Test suite for GET /items
+
+  # Test suite for GET /items
   describe 'GET /items' do
     # make HTTP get request before each example
     before { get '/items' }
@@ -48,4 +50,21 @@ RSpec.describe 'Items API', type: :request do
       end
     end
   end
- end
+
+  # Test suite for PUT /items/:id
+  describe 'PUT /items/:id' do
+    let(:valid_attributes) { { title: 'ModPrice' } }
+
+    context 'when the record exists' do
+      before { put "/items/#{item_id}", params: valid_attributes }
+
+      it 'updates the record' do
+        expect(response.body).to be_empty
+      end
+
+      it 'returns status code 204' do
+        expect(response).to have_http_status(204)
+      end
+    end
+  end
+end

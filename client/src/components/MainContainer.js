@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import Item from './Item';
-import Button from './Button';
-import {Table, ButtonGroup} from 'react-bootstrap';
-
+import {Table, Button} from 'react-bootstrap';
+// TODO: Pop a model on clicking an item to show form to update price
+// TODO: Add Reset button
+// TODO: Add Category Changer 
 class MainContainer extends Component {
   constructor(props){
         super(props)
@@ -35,6 +36,7 @@ class MainContainer extends Component {
 	render() {
 	        return (
 	            <div className="main-container">
+				<h3>Click on any item to adjust the price</h3>
 				<Table striped bordered condensed hover>
 				<tbody>
 	                {this.state.items.filter((item) => item.currency === this.state.country ).map( item => {
@@ -48,8 +50,8 @@ class MainContainer extends Component {
 					</tbody>
 				</Table>
 					<div className="button-group">
-						<button onClick={this.handleClick.bind(this, 'USD')}>Show USA</button>
-					 	<button onClick={this.handleClick.bind(this, 'JPY')}>Show Japan</button>
+						<Button onClick={this.handleClick.bind(this, 'USD')}>Show USA menu</Button>
+					 	<Button onClick={this.handleClick.bind(this, 'JPY')}>Show Japan menu</Button>
 					</div>
 	            </div>
 	        );

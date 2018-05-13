@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'categories API', type: :request do
- # initialize test data 
+  # initialize test data
   let!(:categories) { create_list(:category, 10) }
   let(:category_id) { categories.first.id }
-  
-    # Test suite for GET /categories
+
+  # Test suite for GET /categories
   describe 'GET /categories' do
     # make HTTP get request before each example
     before { get '/categories' }
@@ -48,4 +50,4 @@ RSpec.describe 'categories API', type: :request do
       end
     end
   end
- end
+end

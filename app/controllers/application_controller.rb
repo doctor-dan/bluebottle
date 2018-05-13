@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::API
-    include Response
-    include ExceptionHandler
-    include LoadFiles
+  include Response
+  include ExceptionHandler
+  include LoadFiles
 end

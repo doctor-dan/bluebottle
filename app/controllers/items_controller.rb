@@ -1,28 +1,40 @@
+# frozen_string_literal: true
+
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show]
-    # GET /items
+  # GET /items
   def index
-    if params[:currency]
-      @items = Item.where('currency = ?', params[:currency])
-    else
-      @items = Item.all
-    end
+    @items = if params[:currency]
+               Item.where('currency = ?', params[:currency])
+             else
+               Item.all
+             end
     json_response(@items)
   end
-  
-   # GET /items/1
+
+  # GET /items/1
   def show
     json_response(@item)
   end
-  
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_item
-      @item = Item.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def item_params
-      params.require(:item).permit(:sku, :name, :price, :currency)
+  # PATCH/PUT /items/1
+  def update
+    if @item.update(item_params)
+      render json: @item
+    else
+      render json: @item.errors, status: :unprocessable_entity
     end
+  end
+
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def item_params
+    params.require(:item).permit(:id, :sku, :name, :price, :currency)
+  end
 end
