@@ -12,4 +12,18 @@ class AdminController < ApplicationController
     load_items(conn)
     show_counts
   end
+
+  def modprice
+    case params[:action]
+    when 'modcategory'
+      p 'modding category'
+      @category = Category.find(params[:id])
+      @category.item.each do |it|
+        it.price *= params[:modprice]
+        it.save
+      end
+    when 'moditem'
+      p 'modding item'
+    end
+  end
 end

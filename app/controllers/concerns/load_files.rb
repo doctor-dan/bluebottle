@@ -27,10 +27,11 @@ module LoadFiles
     if response.status == 200
       Item.destroy_all
       Item.create(JSON.parse(response.body))
+      p 'Loadad JP Items'
     end
-
     response = conn.get('en-US/item_details.json')
     Item.create(JSON.parse(response.body)) if response.status == 200
+    p 'loaded US Items'
   end
 
   def load_items(conn)
@@ -39,10 +40,11 @@ module LoadFiles
       Itemcategory.destroy_all
       itemlist = JSON.parse(response.body)
       itemlist.each do |it|
-        catbev = Category.find_by_name(it['category'])
-        itm = Item.find_by_sku(it['sku'])
+        catbev = Category.find_by_name it['category']
+        itm = Item.where(sku: it['sku'])
         catbev.items << itm
       end
     end
+    p 'loaded ItemCategories'
   end
 end
