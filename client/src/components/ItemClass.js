@@ -14,8 +14,8 @@ class ItemClass extends Component {
         };
     }
 
-    handleClick() {
-        alert('You Clicked');
+    handleClick(e) {
+
     }
 
     handleClose() {
@@ -28,7 +28,7 @@ class ItemClass extends Component {
 
     render() {
         return (
-            <tr key={this.props.item.id} onClick = {this.handleClick}>
+            <tr key={this.props.item.id} onClick = {this.handleClick(this.props.item.id)}>
                 <td>{this.props.item.sku}</td>
                 <td>{this.props.item.name}</td>
                 <td>{this.props.item.cost}</td>

@@ -5,9 +5,8 @@ import ReactTable from "react-table";
 import {Table, Button} from 'react-bootstrap';
 import ItemClass from "./ItemClass";
 import UpdateCategoryContainer from "./UpdateCategoryContainer";
-// TODO: Pop a model on clicking an item to show form to update price
-// TODO: Add Reset button
-// TODO: Add Category Changer 
+// TODO: Show/hide category changer
+// TODO: Edit item price
 class MainContainer extends Component {
     constructor(props) {
         super(props);
@@ -15,7 +14,9 @@ class MainContainer extends Component {
             items: [],
             country: 'USD',
         };
-        this.handleShow = this.handleShow.bind(this)
+        this.handleReset = this.handleReset.bind(this);
+        this.handleShow = this.handleShow.bind(this);
+        this.handleClose = this.handleClose.bind(this);
     }
 
     componentDidMount() {
@@ -29,7 +30,23 @@ class MainContainer extends Component {
             .catch(error => console.log(error))
     }
 
+    handleClose() {
+        this.setState({show: false});
+    }
+
+    handleFlag(f) {
+        const newState = {
+            country: f
+        };
+        this.setState(newState);
+
+    }
+
     handleShow() {
+        this.setState({show: true});
+    }
+
+    handleReset() {
         alert(`Resetting Database`);
         axios.put('http://localhost:3001/admin')
             .then(response => {
@@ -66,11 +83,20 @@ class MainContainer extends Component {
                     })}
                     </tbody>
                 </Table>
+                <div className="flags">
+                    <Button bsStyle="primary" onClick={this.handleFlag.bind(this, 'USD')}>
+                        USA </Button>
+                    <Button bsStyle="primary" onClick={this.handleFlag.bind(this, 'JPY')}>
+                        JPY </Button>
+                </div>
                 <div>
-                    <Button bsStyle="primary" onClick={this.handleShow}>
+                    <Button bsStyle="primary" onClick={this.handleReset}>
                         Reset All Prices from original data
                     </Button>
-                    <UpdateCategoryContainer/>
+                    <Button bsStyle="primary" onClick={this.handleShow}>
+                        Update Category Prices
+                    </Button>
+                    <UpdateCategoryContainer show={this.state.show}/>
                 </div>
             </div>
 
