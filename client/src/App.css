@@ -21,7 +21,11 @@
 .App-intro {
   font-size: large;
 }
-
+.flags {
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
 .main-container {
   width: 80%;
   padding: 20px;

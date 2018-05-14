@@ -85,15 +85,15 @@ class MainContainer extends Component {
                 </Table>
                 <div className="flags">
                     <Button bsStyle="primary" onClick={this.handleFlag.bind(this, 'USD')}>
-                        USA </Button>
+                        Show US Menu </Button>
                     <Button bsStyle="primary" onClick={this.handleFlag.bind(this, 'JPY')}>
-                        JPY </Button>
+                        Show Japanese Menu </Button>
                 </div>
-                <div>
-                    <Button bsStyle="primary" onClick={this.handleReset}>
+                <div className="well">
+                    <Button bsStyle="warning" block onClick={this.handleReset}>
                         Reset All Prices from original data
                     </Button>
-                    <Button bsStyle="primary" onClick={this.handleShow}>
+                    <Button bsStyle="primary"  block onClick={this.handleShow}>
                         Update Category Prices
                     </Button>
                     <UpdateCategoryContainer show={this.state.show}/>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Row, Col} from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 
 class ItemClass extends Component {
     constructor(props, context) {
@@ -30,7 +30,7 @@ class ItemClass extends Component {
         return (
             <tr key={this.props.item.id} onClick = {this.handleClick(this.props.item.id)}>
                 <td>{this.props.item.sku}</td>
-                <td>{this.props.item.name}</td>
+                <td><Button bsStyle='link'>{this.props.item.name}</Button></td>
                 <td>{this.props.item.cost}</td>
             </tr>
         );
