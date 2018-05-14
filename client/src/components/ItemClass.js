@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
+import {Row, Col} from 'react-bootstrap';
 
-class ItemClass extends React.Component {
+class ItemClass extends Component {
     constructor(props, context) {
         super(props, context);
 
@@ -22,11 +23,11 @@ class ItemClass extends React.Component {
 
     render() {
         return (
-            <tr className="single-list" key={this.props.item.id}>
-                <td>{this.props.item.sku}</td>
-                <td>{this.props.item.name}</td>
-                <td>{this.props.item.cost}</td>
-            </tr>
+            <Row className="single-list" key={this.props.item.id}>
+                <Col>{this.props.item.sku}</Col>
+                <Col>{this.props.item.name}</Col>
+                <Col>{this.props.item.cost}</Col>
+            </Row>
         );
     }
 }

@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import axios from 'axios';
 import UpdateCategoryContainer from './UpdateCategoryContainer'
 
-import {Table, Button} from 'react-bootstrap';
+import {Table} from 'react-bootstrap';
 import ItemClass from "./ItemClass";
 // TODO: Pop a model on clicking an item to show form to update price
 // TODO: Add Reset button
@@ -12,7 +12,7 @@ class MainContainer extends Component {
         super(props);
         this.state = {
             items: [],
-            country: 'USD',
+            country: this.props.country,
         };
     }
 
@@ -43,7 +43,7 @@ class MainContainer extends Component {
 
                 <h3>Click on any item to adjust the price</h3>
                 <Table striped bordered condensed hover>
-                    <tbody>
+
                     {this.state.items.filter((item) => item.currency === this.state.country).map(item => {
                         if (item.currency === 'USD') {
                             item.cost = parseFloat(item.price).toLocaleString('en-US', {
@@ -59,13 +59,8 @@ class MainContainer extends Component {
                         }
                         return (<ItemClass item={item} key={item.id}/>)
                     })}
-                    </tbody>
+
                 </Table>
-                <div className="button-group">
-                    <Button onClick={this.handleClick.bind(this, 'USD')}>Show USA menu</Button>
-                    <Button onClick={this.handleClick.bind(this, 'JPY')}>Show Japan menu</Button>
-                </div>
-                <UpdateCategoryContainer callBack={this.update} />
             </div>
         );
     }

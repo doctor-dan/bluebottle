@@ -3,7 +3,7 @@ import { NavItem } from 'react-bootstrap';
 class AdminContainer extends Component {
   render() {
     return (
-      <NavItem eventKey="first">Admin</NavItem>
+      <NavItem eventKey="1">Admin</NavItem>
     )
   }
 }
