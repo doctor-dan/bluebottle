@@ -10,7 +10,8 @@ class AdminController < ApplicationController
     load_item_categories(conn)
     load_item_details(conn)
     load_items(conn)
-    show_counts
+    @items = Item.all
+    json_response(@items)
   end
 
   def modify_price
@@ -21,6 +22,8 @@ class AdminController < ApplicationController
       it.price *= params[:modify_price].to_f
       it.save
     end
+    @items = Item.all
+    json_response(@items)
   end
 
 end

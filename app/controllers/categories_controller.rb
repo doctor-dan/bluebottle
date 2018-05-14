@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show]
+  before_action :set_category, only: %i[show update]
 
   # GET /categories
   def index
@@ -14,6 +14,17 @@ class CategoriesController < ApplicationController
     json_response(@category)
   end
 
+  # PUT /categories/1
+  def update
+    @category = Category.find(params[:id])
+    # Update all items in a catagory
+    # set price to price * percentile
+    @category.items.each do |it|
+      it.price *= params[:modify_price].to_f
+      it.save
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -21,4 +32,4 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
   end
 
- end
+end

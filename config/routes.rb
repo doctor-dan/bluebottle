@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   get 'admin', action: :show, controller: 'admin'
   put 'admin', action: :reset, controller: 'admin'
   post 'admin', action: :modify_price, controller: 'admin'
-  resources :items, only: %i[index show update]
-  resources :categories, only: %i[index show]
+  resources :items, only: %i[index show update reset]
+  resources :categories, only: %i[index show update]
 end

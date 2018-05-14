@@ -4,6 +4,7 @@ import ReactTable from "react-table";
 
 import {Table, Button} from 'react-bootstrap';
 import ItemClass from "./ItemClass";
+import UpdateCategoryContainer from "./UpdateCategoryContainer";
 // TODO: Pop a model on clicking an item to show form to update price
 // TODO: Add Reset button
 // TODO: Add Category Changer 
@@ -12,8 +13,9 @@ class MainContainer extends Component {
         super(props);
         this.state = {
             items: [],
-            country: this.props.country,
+            country: 'USD',
         };
+        this.handleShow = this.handleShow.bind(this)
     }
 
     componentDidMount() {
@@ -32,7 +34,10 @@ class MainContainer extends Component {
         axios.put('http://localhost:3001/admin')
             .then(response => {
                 console.log(response);
-               this.loadData()
+                const items = response.data;
+                this.setState(() => ({
+                    items: response.data
+                }))
             })
             .catch(error => console.log(error));
 
@@ -65,6 +70,7 @@ class MainContainer extends Component {
                     <Button bsStyle="primary" onClick={this.handleShow}>
                         Reset All Prices from original data
                     </Button>
+                    <UpdateCategoryContainer/>
                 </div>
             </div>
 
