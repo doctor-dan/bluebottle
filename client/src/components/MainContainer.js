@@ -43,7 +43,7 @@ class MainContainer extends Component {
 
                 <h3>Click on any item to adjust the price</h3>
                 <Table striped bordered condensed hover>
-
+                    <tbody>
                     {this.state.items.filter((item) => item.currency === this.state.country).map(item => {
                         if (item.currency === 'USD') {
                             item.cost = parseFloat(item.price).toLocaleString('en-US', {
@@ -59,7 +59,7 @@ class MainContainer extends Component {
                         }
                         return (<ItemClass item={item} key={item.id}/>)
                     })}
-
+                    </tbody>
                 </Table>
             </div>
         );

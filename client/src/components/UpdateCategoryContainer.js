@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import {Modal, Table, Button} from 'react-bootstrap';
+import {NavItem, Table, Button} from 'react-bootstrap';
 import EditCategoryForm from "./EditCategoryForm";
 import Category from "./Category"
 
@@ -65,12 +65,7 @@ class UpdateCategoryContainer extends Component {
 
         return (
             <div>
-                <Button bsStyle="primary" onClick={this.handleShow}>
-                    Update Category Prices
-                </Button>
-                <Modal show={this.state.show} onHide={this.handleClose}>
-                    <Modal.Body>
-                        <h4>Click a catagory to change global pricing</h4>
+
                         <Table striped bordered condensed hover>
                             <thead>
                             <tr><th>Category</th></tr>
@@ -95,12 +90,10 @@ class UpdateCategoryContainer extends Component {
                             })}
                             </tbody>
                         </Table>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button onClick={this.handleClose}>Close</Button>
-                    </Modal.Footer>
-                </Modal>
-            </div>
+                <Button bsStyle="primary" onClick={this.handleShow}>
+                    Update Category Prices
+                </Button>
+                </div>
         );
     }
 }

@@ -23,11 +23,11 @@ class ItemClass extends Component {
 
     render() {
         return (
-            <Row className="single-list" key={this.props.item.id}>
-                <Col>{this.props.item.sku}</Col>
-                <Col>{this.props.item.name}</Col>
-                <Col>{this.props.item.cost}</Col>
-            </Row>
+            <tr key={this.props.item.id}>
+                <td>{this.props.item.sku}</td>
+                <td>{this.props.item.name}</td>
+                <td>{this.props.item.cost}</td>
+            </tr>
         );
     }
 }

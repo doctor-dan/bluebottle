@@ -3,7 +3,9 @@ import { NavItem } from 'react-bootstrap';
 class AdminContainer extends Component {
   render() {
     return (
-      <NavItem eventKey="1">Admin</NavItem>
+      <div>
+        Use This to update the entire pricing database from source
+      </div>
     )
   }
 }
