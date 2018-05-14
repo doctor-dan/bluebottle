@@ -18,7 +18,6 @@ class ControlledTabs extends Component {
                 <Row className="clearfix">
                     <Col sm={12}>
                         <Nav bsStyle="tabs">
-                            <NavItem eventKey="1">Reset Pricing</NavItem>
                             <NavDropdown eventKey="2" title="Show Menu" id="nav-dropdown-within-tab">
                                 <MenuItem eventKey="2.1">USA</MenuItem>
                                 <MenuItem eventKey="2.2">Japan</MenuItem>
@@ -29,7 +28,6 @@ class ControlledTabs extends Component {
                     </Col>
                     <Col sm={12}>
                         <Tab.Content animation>
-                            <Tab.Pane eventKey="1"><AdminContainer /></Tab.Pane>
                             <Tab.Pane eventKey="2">Show Menu</Tab.Pane>
                             <Tab.Pane eventKey="2.1"><MainContainer country = 'USD'/></Tab.Pane>
                             <Tab.Pane eventKey="2.2"><MainContainer country = 'JPY'/></Tab.Pane>

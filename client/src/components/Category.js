@@ -1,6 +1,7 @@
 import React from 'react';
+import {Row, Col} from 'react-bootstrap';
 
 const Category = ({category, editingCategory=f=>f}) =>
-    <tr key={category.id}><td>{category.name}
-    <button onClick={() => editingCategory(category.id)}>Edit</button></td></tr>
+    <Row key={category.id}><Col>{category.name}
+    <button onClick={() => editingCategory(category.id)}>Edit</button></Col></Row>
 export default Category

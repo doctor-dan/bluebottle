@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import axios from 'axios';
-import UpdateCategoryContainer from './UpdateCategoryContainer'
+import ReactTable from "react-table";
 
-import {Table} from 'react-bootstrap';
+import {Table, Button} from 'react-bootstrap';
 import ItemClass from "./ItemClass";
 // TODO: Pop a model on clicking an item to show form to update price
 // TODO: Add Reset button
@@ -17,30 +17,32 @@ class MainContainer extends Component {
     }
 
     componentDidMount() {
+        this.loadData()
+    }
+    loadData() {
         axios.get('http://localhost:3001/items')
             .then(response => {
-                console.log(response)
+                console.log(response);
                 this.setState({
                     items: response.data
                 })
             })
             .catch(error => console.log(error))
     }
+    handleShow() {
+        alert(`Resetting Database`);
+        axios.put('http://localhost:3001/admin')
+            .then(response => {
+                console.log(response);
+               this.loadData()
+            })
+            .catch(error => console.log(error));
 
-    handleClick = (c) => {
-        const newState = {
-            country: c
-        };
-
-        this.setState(newState);
-        console.log('this is:', this);
-        console.log('message', c);
-    };
+    }
 
     render() {
         return (
             <div className="main-container">
-
                 <h3>Click on any item to adjust the price</h3>
                 <Table striped bordered condensed hover>
                     <tbody>
@@ -61,7 +63,13 @@ class MainContainer extends Component {
                     })}
                     </tbody>
                 </Table>
+                <div>
+                    <Button bsStyle="primary" onClick={this.handleShow}>
+                        Reset All Prices from original data
+                    </Button>
+                </div>
             </div>
+
         );
     }
 }

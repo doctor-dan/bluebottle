@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Row, Col} from 'react-bootstrap';
+
 class EditCategoryForm extends Component {
     constructor(props) {
         super(props)
@@ -20,13 +22,16 @@ class EditCategoryForm extends Component {
     }
     render(){
         return(
+            <Row><Col>
             <form onSubmit={this.handleSubmit}>
-                <input  name="modprice"
-                        type="number"
+                <label>
+                    Name:
+                <input  type="text"
                         value={this.state.modprice}
                         onChange={this.handleChange} />
-                <button>Update Category Pricing</button>
-            </form>
+                </label>
+                    <input type="submit" value="Submit" />
+            </form></Col></Row>
         )
     }
 }

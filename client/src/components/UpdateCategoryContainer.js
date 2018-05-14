@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import {NavItem, Table, Button} from 'react-bootstrap';
+import {Row, Col, Grid, Button} from 'react-bootstrap';
 import EditCategoryForm from "./EditCategoryForm";
 import Category from "./Category"
 
@@ -66,11 +66,12 @@ class UpdateCategoryContainer extends Component {
         return (
             <div>
 
-                        <Table striped bordered condensed hover>
-                            <thead>
-                            <tr><th>Category</th></tr>
-                            </thead>
-                            <tbody>
+                <Grid>
+                    <Row className="show-grid">
+                        <Col>
+                           Category
+                        </Col>
+                    </Row>
                             {this.state.categories.map(cat => {
                                 if ( this.state.editingCategoryId === cat.id ) {
                                     return (<EditCategoryForm
@@ -88,8 +89,8 @@ class UpdateCategoryContainer extends Component {
                                 )}
 
                             })}
-                            </tbody>
-                        </Table>
+
+                </Grid>
                 <Button bsStyle="primary" onClick={this.handleShow}>
                     Update Category Prices
                 </Button>

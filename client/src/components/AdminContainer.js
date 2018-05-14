@@ -1,14 +1,33 @@
-import React, { Component } from 'react'
-import { NavItem } from 'react-bootstrap';
+import React, {Component} from 'react'
+import {Button} from 'react-bootstrap';
+import axios from "axios/index";
+
 class AdminContainer extends Component {
-  render() {
-    return (
-      <div>
-        Use This to update the entire pricing database from source
-      </div>
-    )
-  }
+
+    handleShow() {
+        alert(`Resetting Database`);
+        axios.put('http://localhost:3001/admin')
+            .then(response => {
+                console.log(response);
+
+            })
+            .catch(error => console.log(error));
+
+    }
+
+    render() {
+
+        return (
+
+            <div>
+                <Button bsStyle="primary" onClick={this.handleShow}>
+                    Reset All Prices from original data
+                </Button>
+            </div>
+        )
+    }
 }
+
 export default AdminContainer
 
 
