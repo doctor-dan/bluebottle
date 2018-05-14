@@ -17,9 +17,6 @@ class MainContainer extends Component {
     }
 
     componentDidMount() {
-        this.loadData()
-    }
-    loadData() {
         axios.get('http://localhost:3001/items')
             .then(response => {
                 console.log(response);
@@ -29,6 +26,7 @@ class MainContainer extends Component {
             })
             .catch(error => console.log(error))
     }
+
     handleShow() {
         alert(`Resetting Database`);
         axios.put('http://localhost:3001/admin')
