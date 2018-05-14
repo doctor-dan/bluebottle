@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios';
-import Item from './Item';
-import UpdateCategoryPrices from './UpdateCategoryPrices'
+import UpdateCategoryContainer from './UpdateCategoryContainer'
 
 import {Table, Button} from 'react-bootstrap';
 import ItemClass from "./ItemClass";
@@ -66,7 +65,7 @@ class MainContainer extends Component {
                     <Button onClick={this.handleClick.bind(this, 'USD')}>Show USA menu</Button>
                     <Button onClick={this.handleClick.bind(this, 'JPY')}>Show Japan menu</Button>
                 </div>
-                <UpdateCategoryPrices  />
+                <UpdateCategoryContainer callBack={this.update} />
             </div>
         );
     }
