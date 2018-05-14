@@ -24,6 +24,8 @@ class CategoriesController < ApplicationController
       it.price *= modprice
       it.save
     end
+    @items = Item.all
+    json_response(@items)
   end
 
   private
