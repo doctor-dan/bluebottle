@@ -10,11 +10,11 @@ import ItemClass from "./ItemClass";
 // TODO: Add Category Changer 
 class MainContainer extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             items: [],
-            country: 'USD'
-        }
+            country: 'USD',
+        };
     }
 
     componentDidMount() {
@@ -26,29 +26,6 @@ class MainContainer extends Component {
                 })
             })
             .catch(error => console.log(error))
-
-        axios.get('http://localhost:3001/categories')
-            .then(response => {
-                console.log(response)
-                this.setState({
-                    categories: response.data
-                })
-            })
-            .catch(error => console.log(error))
-    }
-
-    editList(id, modprice, action) {
-        axios.put('http://localhost:3001/admin',
-            {
-                "id": id,
-                "modprice": modprice,
-                "action": action
-            }
-        )
-            .then(response => {
-                console.log(response);
-            })
-            .catch(error => console.log(error));
     }
 
     handleClick = (c) => {
@@ -59,11 +36,12 @@ class MainContainer extends Component {
         this.setState(newState);
         console.log('this is:', this);
         console.log('message', c);
-    }
+    };
 
     render() {
         return (
             <div className="main-container">
+
                 <h3>Click on any item to adjust the price</h3>
                 <Table striped bordered condensed hover>
                     <tbody>
@@ -88,7 +66,7 @@ class MainContainer extends Component {
                     <Button onClick={this.handleClick.bind(this, 'USD')}>Show USA menu</Button>
                     <Button onClick={this.handleClick.bind(this, 'JPY')}>Show Japan menu</Button>
                 </div>
-                <UpdateCategoryPrices categories={this.state.categories}  />
+                <UpdateCategoryPrices  />
             </div>
         );
     }

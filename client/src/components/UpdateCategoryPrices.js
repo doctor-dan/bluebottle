@@ -27,7 +27,7 @@ class UpdateCategoryPrices extends React.Component {
 
         return (
             <div>
-                <Button bsStyle="primary" bsSize="large" onClick={this.handleShow}>
+                <Button bsStyle="primary" onClick={this.handleShow}>
                     Update Category Prices
                 </Button>
                 <Modal show={this.state.show} onHide={this.handleClose}>

@@ -48,14 +48,9 @@ class ItemClass extends React.Component {
                 // </Modal>
                         <tr className="single-list" key={this.props.item.id}>
                             <td>{this.props.item.sku}</td>
-                            <td><a href="#" onClick={this.handleShow}>
-                                {this.props.item.name}
-                            </a></td>
+                            <td>{this.props.item.name}</td>
                             <td>{this.props.item.cost}</td>
                         </tr>
-
-
-
         );
     }
 }

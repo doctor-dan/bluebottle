@@ -2,19 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="858a3ef5-953b-4591-b654-dc764a89e837" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/EditCategoryForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/ItemClass.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/UpdateCategoryPrices.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/admin_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/admin_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/categories_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/categories_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/concerns/load_files.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/concerns/load_files.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ControlledTabs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ItemsContainer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ItemClass.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ItemClass.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/MainContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/MainContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.json" beforeDir="false" afterPath="$PROJECT_DIR$/test.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UpdateCategoryPrices.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UpdateCategoryPrices.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -34,8 +27,8 @@
       <file leaf-file-name="MainContainer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/MainContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="64" column="16" lean-forward="true" selection-start-line="64" selection-start-column="16" selection-end-line="64" selection-end-column="16" />
+            <state relative-caret-position="301">
+              <caret line="60" column="38" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -43,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UpdateCategoryPrices.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UpdateCategoryPrices.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/UpdateCategoryPrices.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="43" column="44" lean-forward="true" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
+            <state relative-caret-position="435">
+              <caret line="29" column="42" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -55,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ItemClass.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ItemClass.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/components/ItemClass.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="48" column="76" selection-start-line="48" selection-start-column="52" selection-end-line="48" selection-end-column="76" />
+            <state relative-caret-position="481">
+              <caret line="53" selection-start-line="53" selection-end-line="53" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -80,7 +73,7 @@
         <entry file="file://$PROJECT_DIR$/app/controllers/items_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="316">
-              <caret line="26" column="5" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="26" selection-end-column="5" />
+              <caret line="26" column="5" selection-start-line="19" selection-start-column="1" selection-end-line="26" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -113,9 +106,9 @@
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/admin_controller.rb" />
         <option value="$PROJECT_DIR$/test.json" />
-        <option value="$PROJECT_DIR$/client/src/components/ItemClass.js" />
         <option value="$PROJECT_DIR$/client/src/components/MainContainer.js" />
         <option value="$PROJECT_DIR$/client/src/components/UpdateCategoryPrices.js" />
+        <option value="$PROJECT_DIR$/client/src/components/ItemClass.js" />
       </list>
     </option>
   </component>
@@ -2015,7 +2008,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17210000" />
+    <option name="totallyTimeSpent" value="22604000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="43" width="1260" height="737" extended-state="0" />
@@ -2179,17 +2172,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Item.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/items_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="316">
-          <caret line="26" column="5" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="26" selection-end-column="5" />
+          <caret line="26" column="5" selection-start-line="19" selection-start-column="1" selection-end-line="26" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -2231,6 +2217,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Item.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/EditCategoryForm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -2238,10 +2231,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/ItemClass.js">
+    <entry file="file://$PROJECT_DIR$/client/src/components/UpdateCategoryPrices.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="48" column="76" selection-start-line="48" selection-start-column="52" selection-end-line="48" selection-end-column="76" />
+        <state relative-caret-position="435">
+          <caret line="29" column="42" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
@@ -2250,18 +2243,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/MainContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="64" column="16" lean-forward="true" selection-start-line="64" selection-start-column="16" selection-end-line="64" selection-end-column="16" />
+        <state relative-caret-position="301">
+          <caret line="60" column="38" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/UpdateCategoryPrices.js">
+    <entry file="file://$PROJECT_DIR$/client/src/components/ItemClass.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="43" column="44" lean-forward="true" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
+        <state relative-caret-position="481">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
