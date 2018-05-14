@@ -20,7 +20,8 @@ class CategoriesController < ApplicationController
     # Update all items in a catagory
     # set price to price * percentile
     @category.items.each do |it|
-      it.price *= params[:modify_price].to_f
+      modprice = params[:modify_price].to_f / 100
+      it.price *= modprice
       it.save
     end
   end

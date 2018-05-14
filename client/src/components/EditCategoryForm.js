@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {Row, Col} from 'react-bootstrap';
 
 class EditCategoryForm extends Component {
@@ -6,33 +6,43 @@ class EditCategoryForm extends Component {
         super(props)
         this.state = {
             id: this.props.category.id,
-            modprice: this.props.category.modprice
+            modprice: 100
 
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
+
     handleChange = (e) => {
+        console.log("setting state: " + e.target.name + " value: " + e.target.value);
         this.setState({[e.target.name]: e.target.value})
     }
-    handleSubmit(e){
+
+    handleSubmit(e) {
         e.preventDefault();
-        const { id, modprice } = this.state;
+        const {id, modprice} = this.state;
+        console.log('submitting id: ' + id);
+        console.log('submitting modprice: ' + modprice);
         this.props.editCategory(id, modprice);
     }
-    render(){
-        return(
+
+    render() {
+        return (
             <Row><Col>
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    Name:
-                <input  type="text"
-                        value={this.state.modprice}
-                        onChange={this.handleChange} />
-                </label>
-                    <input type="submit" value="Submit" />
-            </form></Col></Row>
+                <form onSubmit={this.handleSubmit}>
+                    <label>
+                        Modify by this percentage:
+                        <input name="modprice"
+                               type="text"
+                               defaultValue={this.state.modprice}
+                             onChange={this.handleChange}
+                        />
+                    </label>
+                    <input type="submit" value="Submit"/>
+                </form>
+            </Col></Row>
         )
     }
 }
+
 export default EditCategoryForm;

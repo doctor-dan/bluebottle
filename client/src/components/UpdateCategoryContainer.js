@@ -22,12 +22,12 @@ class UpdateCategoryContainer extends Component {
 
     handleClose() {
         this.setState({show: false});
-        this.props.callback
     }
 
     handleShow() {
         this.setState({show: true});
     }
+
     editingCategory(id) {
         this.setState({
             editingCategoryId: id
@@ -35,14 +35,15 @@ class UpdateCategoryContainer extends Component {
     }
 
     editCategory(id, modprice) {
-        axios.post( 'http://localhost:3001/admin', {
+        console.log('Sending id: ' + id );
+        console.log('Sending modprice:' + modprice);
+        axios.put( 'http://localhost:3001/categories/'+ id, {
             modify_price: modprice,
             id: id
         })
             .then(response => {
                 console.log(response);
                 const categories = this.state.categories;
-                categories[id-1] = {id, modprice}
                 this.setState(() => ({
                     categories,
                     editingCategoryId: null
@@ -65,24 +66,26 @@ class UpdateCategoryContainer extends Component {
 
         return (
             <div>
-
-                <Grid>
-                    <Row className="show-grid">
+                <Button bsStyle="primary" onClick={this.handleShow}>
+                    Update Category Prices
+                </Button>
+                <Grid className="show-grid">
+                    <Row>
                         <Col>
                            Category
                         </Col>
                     </Row>
-                            {this.state.categories.map(cat => {
-                                if ( this.state.editingCategoryId === cat.id ) {
+                            {this.state.categories.map(category => {
+                                if ( this.state.editingCategoryId === category.id ) {
                                     return (<EditCategoryForm
-                                        category={cat}
-                                        key={cat.id}
+                                        category={category}
+                                        key={category.id}
                                         editCategory={this.editCategory}
                                     />)
                                 } else {
                                     return (<Category
-                                            category={cat}
-                                            key={cat.id}
+                                            category={category}
+                                            key={category.id}
                                             editingCategory={this.editingCategory}
                                         />
 
@@ -91,9 +94,7 @@ class UpdateCategoryContainer extends Component {
                             })}
 
                 </Grid>
-                <Button bsStyle="primary" onClick={this.handleShow}>
-                    Update Category Prices
-                </Button>
+
                 </div>
         );
     }
