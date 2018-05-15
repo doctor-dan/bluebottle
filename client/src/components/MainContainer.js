@@ -22,7 +22,7 @@ class MainContainer extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3001/items')
+        axios.get('/api/v1/items')
             .then(response => {
                 console.log(response);
                 this.setState({
@@ -53,7 +53,7 @@ class MainContainer extends Component {
     }
     handleReset() {
         alert(`Resetting Database`);
-        axios.put('http://localhost:3001/admin')
+        axios.put('/api/v1/admin')
             .then(response => {
                 console.log(response);
                 const items = response.data;
@@ -73,7 +73,7 @@ class MainContainer extends Component {
     editItem(id, sku, name, price, currency) {
         console.log('Sending id: ' + id);
         console.log('Sending price:' + price);
-        axios.put('http://localhost:3001/items/' + id, {
+        axios.put('/api/v1/items/' + id, {
             price: price
         })
             .then(response => {
@@ -94,6 +94,11 @@ class MainContainer extends Component {
             <div className="main-container">
                 <h3>Click on any item to adjust the price</h3>
                 <Table striped bordered condensed hover>
+                    <thead>
+                    <tr>
+                        <th>SKU</th><th>NAME</th><th>PRICE</th>
+                    </tr>
+                    </thead>
                     <tbody>
                     {this.state.items.filter((item) => item.currency === this.state.country)
                         .sort((a, b) => a.name.localeCompare(b.name))
