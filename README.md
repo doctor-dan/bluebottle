@@ -23,9 +23,13 @@ I went with the first choice as it seemed the most straight forward.
 
 Production Readiness
 
-* App is deployed to Heruko, with a postgreSql database running a Puma server. The front and and back end are deployed from a single location.
+* App is deployed to Heruko, https://sheltered-atoll-65206.herokuapp.com/
+    with a postgreSql database running a Puma server. The front and and back end are deployed from a single location.
 
 What's Left TODO
+* Autoload data on app startup.  Currently, if you are running locally, you need to run rails, create the database and then
+load in the schema. There are no migrations on the rails side. Once the app is running, you can press the "Reset all Prices" button to 
+load in the initial data.
 * Testing React. While the rails server has a good set of spec tests, there are currently no tests
 in place for the react side. I setup mocha, chai and jsdom, but did not have time to write any user tests
 * Better design. I may be able to create a react app but don't expect me to style it. Not my strong suit.
