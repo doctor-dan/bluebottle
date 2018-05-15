@@ -34,6 +34,7 @@ class UpdateCategoryContainer extends Component {
                 console.log(response);
                 const categories = this.state.categories;
                 const items = response.data;
+                this.props.onCategoryUpdate(items);
                 this.setState(() => ({
                     categories: categories,
                     items: items,

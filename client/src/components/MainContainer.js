@@ -17,8 +17,9 @@ class MainContainer extends Component {
         this.handleReset = this.handleReset.bind(this);
         this.handleShow = this.handleShow.bind(this);
         this.handleClose = this.handleClose.bind(this);
-        this.editingItem = this.editingItem.bind(this)
-        this.editItem = this.editItem.bind(this)
+        this.editingItem = this.editingItem.bind(this);
+        this.editItem = this.editItem.bind(this);
+        this.handleCategoryChange = this.handleCategoryChange.bind(this);
     }
 
     componentDidMount() {
@@ -49,7 +50,7 @@ class MainContainer extends Component {
     }
 
     handleCategoryChange(newItems) {
-        this.setState({items: newItems})
+        this.setState({items: newItems});
     }
     handleReset() {
         alert(`Resetting Database`);
