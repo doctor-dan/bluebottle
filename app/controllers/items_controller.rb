@@ -5,9 +5,9 @@ class ItemsController < ApplicationController
   # GET /items
   def index
     @items = if params[:currency]
-               Item.where('currency = ?', params[:currency])
+               Item.where('currency = ?', params[:currency]).order(:name)
              else
-               Item.all
+               Item.all.order(:name)
              end
     json_response(@items)
   end

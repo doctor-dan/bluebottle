@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios';
-import {Row, Col, Grid, Button} from 'react-bootstrap';
+import {Table} from 'react-bootstrap';
 import EditCategoryForm from "./EditCategoryForm";
 import Category from "./Category"
 
@@ -33,8 +33,10 @@ class UpdateCategoryContainer extends Component {
             .then(response => {
                 console.log(response);
                 const categories = this.state.categories;
+                const items = response.data;
                 this.setState(() => ({
-                    categories,
+                    categories: categories,
+                    items: items,
                     editingCategoryId: null
                 }))
             })
@@ -57,17 +59,20 @@ class UpdateCategoryContainer extends Component {
             return (
                 <div>
 
-                    <Grid className="show-grid">
-                        <Row>
-                            <Col>
+                    <Table className="show-grid">
+                        <thead>
+                        <tr>
+                            <th>
                                 Category
-                            </Col>
-                        </Row>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
                         {this.state.categories.map(category => {
                             if (this.state.editingCategoryId === category.id) {
                                 return (<EditCategoryForm
                                     category={category}
-                                    key={category.id}
+                                    key={category.name}
                                     editCategory={this.editCategory}
                                 />)
                             } else {
@@ -81,8 +86,8 @@ class UpdateCategoryContainer extends Component {
                             }
 
                         })}
-
-                    </Grid>
+                        </tbody>
+                    </Table>
 
                 </div>
             )

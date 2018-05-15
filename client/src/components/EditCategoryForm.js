@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Row, Col} from 'react-bootstrap';
 
 class EditCategoryForm extends Component {
     constructor(props) {
@@ -28,7 +27,7 @@ class EditCategoryForm extends Component {
 
     render() {
         return (
-            <Row><Col>
+            <tr><td>
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Modify by this percentage:
@@ -40,7 +39,7 @@ class EditCategoryForm extends Component {
                     </label>
                     <input type="submit" value="Submit"/>
                 </form>
-            </Col></Row>
+            </td></tr>
         )
     }
 }

@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories
   def index
-    @categories = Category.all
+    @categories = Category.all.order(:name)
     json_response(@categories)
   end
 

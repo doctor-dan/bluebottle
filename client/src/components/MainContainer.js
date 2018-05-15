@@ -1,22 +1,24 @@
 import React, {Component} from 'react'
 import axios from 'axios';
-import ReactTable from "react-table";
-
 import {Table, Button} from 'react-bootstrap';
-import ItemClass from "./ItemClass";
+import Item from "./Item";
 import UpdateCategoryContainer from "./UpdateCategoryContainer";
+import EditItemForm from "./EditItemForm"
 // TODO: Show/hide category changer
 // TODO: Edit item price
 class MainContainer extends Component {
-    constructor(props) {
-        super(props);
+    constructor(props, context) {
+        super(props, context);
         this.state = {
             items: [],
             country: 'USD',
+            editingItemId: null
         };
         this.handleReset = this.handleReset.bind(this);
         this.handleShow = this.handleShow.bind(this);
         this.handleClose = this.handleClose.bind(this);
+        this.editingItem = this.editingItem.bind(this)
+        this.editItem = this.editItem.bind(this)
     }
 
     componentDidMount() {
@@ -46,6 +48,9 @@ class MainContainer extends Component {
         this.setState({show: true});
     }
 
+    handleCategoryChange(newItems) {
+        this.setState({items: newItems})
+    }
     handleReset() {
         alert(`Resetting Database`);
         axios.put('http://localhost:3001/admin')
@@ -53,11 +58,35 @@ class MainContainer extends Component {
                 console.log(response);
                 const items = response.data;
                 this.setState(() => ({
-                    items: response.data
+                    items: items
                 }))
             })
             .catch(error => console.log(error));
 
+    }
+    editingItem(id) {
+        this.setState({
+            editingItemId: id
+        })
+    }
+
+    editItem(id, sku, name, price, currency) {
+        console.log('Sending id: ' + id);
+        console.log('Sending price:' + price);
+        axios.put('http://localhost:3001/items/' + id, {
+            price: price
+        })
+            .then(response => {
+                console.log(response.data);
+                const items = this.state.items;
+                const index = items.findIndex(function (obj) { return obj.id === id; });
+                items[index] = response.data;
+                this.setState(() => ({
+                    items,
+                    editingItemId: null
+                }))
+            })
+            .catch(error => console.log(error));
     }
 
     render() {
@@ -66,7 +95,9 @@ class MainContainer extends Component {
                 <h3>Click on any item to adjust the price</h3>
                 <Table striped bordered condensed hover>
                     <tbody>
-                    {this.state.items.filter((item) => item.currency === this.state.country).map(item => {
+                    {this.state.items.filter((item) => item.currency === this.state.country)
+                        .sort((a, b) => a.name.localeCompare(b.name))
+                        .map(item => {
                         if (item.currency === 'USD') {
                             item.cost = parseFloat(item.price).toLocaleString('en-US', {
                                 style: 'currency',
@@ -79,7 +110,17 @@ class MainContainer extends Component {
                                 currency: 'JPY'
                             })
                         }
-                        return (<ItemClass item={item} key={item.id}/>)
+                        if (this.state.editingItemId === item.id) {
+                            console.log('editingItemId: ' + item.id)
+                            return (<EditItemForm
+                                item={item}
+                                key={item.id}
+                                editItem={this.editItem}
+                            />)
+                        }
+                        else {
+                            return (<Item item={item} key={item.id} editingItem={this.editingItem}/>)
+                        }
                     })}
                     </tbody>
                 </Table>
@@ -96,7 +137,10 @@ class MainContainer extends Component {
                     <Button bsStyle="primary"  block onClick={this.handleShow}>
                         Update Category Prices
                     </Button>
-                    <UpdateCategoryContainer show={this.state.show}/>
+                    <UpdateCategoryContainer
+                        categories={this.state.categories}
+                        onCategoryUpdate = {this.handleCategoryChange}
+                        show={this.state.show}/>
                 </div>
             </div>
 
