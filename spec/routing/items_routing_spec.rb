@@ -15,6 +15,5 @@ RSpec.describe ItemsController, type: :routing do
     it 'routes to #update via PUT' do
       expect(put: '/items/1').to route_to('items#update', id: '1')
     end
-
   end
 end

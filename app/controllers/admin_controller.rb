@@ -25,5 +25,4 @@ class AdminController < ApplicationController
     @items = Item.all
     json_response(@items)
   end
-
 end
