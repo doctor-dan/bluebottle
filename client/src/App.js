@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
-
-import ControlledTabs from './components/ControlledTabs'
+import MainContainer from "./components/MainContainer";
 
 class App extends Component {
   render() {
@@ -10,7 +9,7 @@ class App extends Component {
         <div className="App-header">
           <h1>Blue Bottle Coffee Demo</h1>
         </div>
-        <ControlledTabs />
+        <MainContainer />
       </div>
       
     );
