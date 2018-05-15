@@ -4,8 +4,7 @@ import {Table, Button} from 'react-bootstrap';
 import Item from "./Item";
 import UpdateCategoryContainer from "./UpdateCategoryContainer";
 import EditItemForm from "./EditItemForm"
-// TODO: Show/hide category changer
-// TODO: Edit item price
+
 class MainContainer extends Component {
     constructor(props, context) {
         super(props, context);
@@ -93,7 +92,7 @@ class MainContainer extends Component {
     render() {
         return (
             <div className="main-container">
-                <h3>Click on any item to adjust the price</h3>
+
                 <Table striped bordered condensed hover>
                     <thead>
                     <tr>
