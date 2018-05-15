@@ -6,7 +6,7 @@ class AdminContainer extends Component {
 
     handleShow() {
         alert(`Resetting Database`);
-        axios.put('http://localhost:3001/admin')
+        axios.put('/api/v1/admin')
             .then(response => {
                 console.log(response);
 

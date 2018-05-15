@@ -26,7 +26,7 @@ class UpdateCategoryContainer extends Component {
     editCategory(id, modprice) {
         console.log('Sending id: ' + id);
         console.log('Sending modprice:' + modprice);
-        axios.put('http://localhost:3001/categories/' + id, {
+        axios.put('/api/v1/categories/' + id, {
             modify_price: modprice,
             id: id
         })
@@ -44,7 +44,7 @@ class UpdateCategoryContainer extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3001/categories')
+        axios.get('/api/v1/categories')
             .then(response => {
                 console.log('categories:', response)
                 this.setState({
