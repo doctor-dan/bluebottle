@@ -18,7 +18,7 @@ gem 'rack-cors', require: 'rack/cors'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'seed_dump'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
